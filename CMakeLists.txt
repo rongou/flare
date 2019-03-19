@@ -20,4 +20,5 @@ endif ()
 
 add_subdirectory(thirdparty)
 
-add_executable(flare main.cpp)
+add_executable(flare src/cli/flare.cpp)
+target_link_libraries(flare readline)
