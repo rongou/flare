@@ -41,8 +41,8 @@ wget https://github.com/protocolbuffers/protobuf/releases/download/v3.7.0/protob
 tar xzvf protobuf-cpp-3.7.0.tar.gz
 cd protobuf-3.7.0
 ./configure
-make -j 12
-make check -j 12
+make -j `nproc`
+make check -j `nproc`
 sudo make install
 sudo ldconfig
 ```
