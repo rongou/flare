@@ -13,7 +13,7 @@ sudo ubuntu-drivers autoinstall
 
 ## Install CUDA 10.1
 ```bash
-wget -O cuda_10.1.105_418.39_linux.run https://developer.nvidia.com/compute/cuda/10.1/Prod/local_installers/cuda_10.1.105_418.39_linux.run
+wget https://developer.nvidia.com/compute/cuda/10.1/Prod/local_installers/cuda_10.1.105_418.39_linux.run
 sudo sh cuda_10.1.105_418.39_linux.run
 # Follow the command-line prompts, but don't install the driver again.
 ```
