@@ -47,6 +47,16 @@ sudo make install
 sudo ldconfig
 ```
 
+## Install gRPC 1.19.1
+```bash
+sudo apt-get install build-essential autoconf libtool pkg-config
+git clone -b v1.19.1 https://github.com/grpc/grpc
+cd grpc
+git submodule update --init
+make -j `nproc`
+sudo make install
+```
+
 ## Install additional packages
 ```bash
 sudo apt update
