@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package flare;
+
+service Flare {
+  rpc Execute(FlareRequest) returns (FlareReply) {}
+}
+
+message FlareRequest {
+  string sql = 1;
+}
+
+message FlareReply {
+  string result = 1;
+}
