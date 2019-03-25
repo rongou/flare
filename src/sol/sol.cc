@@ -16,8 +16,7 @@ using flare::Flare;
 
 // Logic and data behind the server's behavior.
 class FlareServiceImpl final : public Flare::Service {
-  Status Execute(ServerContext* context, const FlareRequest* request,
-                 FlareReply* reply) override {
+  Status Execute(ServerContext* context, const FlareRequest* request, FlareReply* reply) override {
     std::string prefix("Hello ");
     reply->set_result(prefix + request->sql());
     return Status::OK;

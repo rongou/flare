@@ -1,5 +1,5 @@
-#include <stdio.h>
-#include <stdlib.h>
+#include <cstdio>
+#include <cstdlib>
 #include <string>
 
 #include <readline/readline.h>
@@ -18,7 +18,7 @@ using flare::Flare;
 
 class FlareClient {
 public:
-  FlareClient(std::shared_ptr<Channel> channel)
+  explicit FlareClient(const std::shared_ptr<Channel> &channel)
       : stub_(Flare::NewStub(channel)) {}
 
   // Assembles the client's payload, sends it and presents the response back
