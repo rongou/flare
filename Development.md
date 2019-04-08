@@ -55,10 +55,11 @@ cd third_party/protobuf
 sudo make install
 ```
 
-### Install CMake 3.14.0
+### Install CMake 3.14.1
 ```bash
-wget https://github.com/Kitware/CMake/releases/download/v3.14.0/cmake-3.14.0-Linux-x86_64.tar.gz
-sudo tar --strip-components=1 -xzvf cmake-3.14.0-Linux-x86_64.tar.gz -C /usr/local
+export CMAKE_VERSION="3.14.1"
+wget https://github.com/Kitware/CMake/releases/download/v${CMAKE_VERSION}/cmake-${CMAKE_VERSION}-Linux-x86_64.tar.gz
+sudo tar --strip-components=1 -xzvf cmake-${CMAKE_VERSION}-Linux-x86_64.tar.gz -C /usr/local
 ```
 
 ## Building
