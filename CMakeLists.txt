@@ -28,10 +28,9 @@ if (CCACHE_PROGRAM)
   set(CMAKE_CUDA_COMPILER_LAUNCHER "${CCACHE_PROGRAM}")
 endif ()
 
-# Load CMake modules.
-list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/cmake")
-
 # Add third party dependencies.
+include(cmake/CPM.cmake)
+
 CPMAddPackage(
   NAME googletest
   GITHUB_REPOSITORY google/googletest
@@ -40,6 +39,20 @@ CPMAddPackage(
   OPTIONS
     "INSTALL_GTEST OFF"
     "gtest_force_shared_crt"
+)
+
+CPMAddPackage(
+  NAME gRPC
+  GITHUB_REPOSITORY grpc/grpc
+  VERSION 1.33.2
+  OPTIONS
+    "gRPC_BUILD_CSHARP_EXT OFF"
+    "gRPC_BUILD_GRPC_CSHARP_PLUGIN OFF"
+    "gRPC_BUILD_GRPC_NODE_PLUGIN OFF"
+    "gRPC_BUILD_GRPC_OBJECTIVE_C_PLUGIN OFF"
+    "gRPC_BUILD_GRPC_PHP_PLUGIN OFF"
+    "gRPC_BUILD_GRPC_PYTHON_PLUGIN OFF"
+    "gRPC_BUILD_GRPC_RUBY_PLUGIN OFF"
 )
 
 # Add the project.
