@@ -19,10 +19,10 @@ sudo apt update
 sudo ubuntu-drivers autoinstall
 ```
 
-### Install CUDA 11.1
+### Install CUDA 11.2
 ```bash
-wget https://developer.download.nvidia.com/compute/cuda/11.1.1/local_installers/cuda_11.1.1_455.32.00_linux.run
-sudo sh cuda_11.1.1_455.32.00_linux.run
+wget https://developer.download.nvidia.com/compute/cuda/11.2.0/local_installers/cuda_11.2.0_460.27.04_linux.run
+sudo sh cuda_11.2.0_460.27.04_linux.run
 # Follow the command-line prompts, but don't install the driver again.
 ```
 

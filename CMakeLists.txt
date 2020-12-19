@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.17...3.19 FATAL_ERROR)
+cmake_minimum_required(VERSION 3.19)
 
 project(flare LANGUAGES CUDA CXX)
 
@@ -13,20 +13,20 @@ set(CMAKE_CUDA_STANDARD_REQUIRED ON)
 set(CMAKE_CUDA_EXTENSIONS OFF)
 
 # Check for CUDA version.
-if (CMAKE_CUDA_COMPILER_ID STREQUAL "NVIDIA")
-  if (CMAKE_CUDA_COMPILER_VERSION VERSION_LESS 11.1)
-    message(FATAL_ERROR "${PROJECT_NAME} requires CUDA 11.1 or greater.")
-  endif ()
-else ()
+if(CMAKE_CUDA_COMPILER_ID STREQUAL "NVIDIA")
+  if(CMAKE_CUDA_COMPILER_VERSION VERSION_LESS 11.2)
+    message(FATAL_ERROR "${PROJECT_NAME} requires CUDA 11.2 or greater.")
+  endif()
+else()
   message(FATAL_ERROR "For CUDA, only the nvcc compiler is supported.")
-endif ()
+endif()
 
 # Use ccache if possible.
 find_program(CCACHE_PROGRAM ccache)
-if (CCACHE_PROGRAM)
+if(CCACHE_PROGRAM)
   set(CMAKE_CXX_COMPILER_LAUNCHER "${CCACHE_PROGRAM}")
   set(CMAKE_CUDA_COMPILER_LAUNCHER "${CCACHE_PROGRAM}")
-endif ()
+endif()
 
 # Add third party dependencies.
 include(cmake/CPM.cmake)
@@ -37,22 +37,22 @@ CPMAddPackage(
   GIT_TAG release-1.10.0
   VERSION 1.10.0
   OPTIONS
-    "INSTALL_GTEST OFF"
-    "gtest_force_shared_crt"
+  "INSTALL_GTEST OFF"
+  "gtest_force_shared_crt"
 )
 
 CPMAddPackage(
   NAME gRPC
   GITHUB_REPOSITORY grpc/grpc
-  VERSION 1.33.2
+  VERSION 1.34.0
   OPTIONS
-    "gRPC_BUILD_CSHARP_EXT OFF"
-    "gRPC_BUILD_GRPC_CSHARP_PLUGIN OFF"
-    "gRPC_BUILD_GRPC_NODE_PLUGIN OFF"
-    "gRPC_BUILD_GRPC_OBJECTIVE_C_PLUGIN OFF"
-    "gRPC_BUILD_GRPC_PHP_PLUGIN OFF"
-    "gRPC_BUILD_GRPC_PYTHON_PLUGIN OFF"
-    "gRPC_BUILD_GRPC_RUBY_PLUGIN OFF"
+  "gRPC_BUILD_CSHARP_EXT OFF"
+  "gRPC_BUILD_GRPC_CSHARP_PLUGIN OFF"
+  "gRPC_BUILD_GRPC_NODE_PLUGIN OFF"
+  "gRPC_BUILD_GRPC_OBJECTIVE_C_PLUGIN OFF"
+  "gRPC_BUILD_GRPC_PHP_PLUGIN OFF"
+  "gRPC_BUILD_GRPC_PYTHON_PLUGIN OFF"
+  "gRPC_BUILD_GRPC_RUBY_PLUGIN OFF"
 )
 
 # Add the project.
